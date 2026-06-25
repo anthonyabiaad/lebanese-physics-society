@@ -2,6 +2,27 @@ const profile = document.getElementById("profile");
 const errorBox = document.getElementById("errorBox");
 const pageTitle = document.getElementById("pageTitle");
 
+function setSiteLinks() {
+  const links = [
+    ["footerWhatsappLink", typeof WHATSAPP_URL !== "undefined" ? WHATSAPP_URL : ""],
+    ["footerMemberFormLink", typeof MEMBER_FORM_URL !== "undefined" ? MEMBER_FORM_URL : ""]
+  ];
+
+  links.forEach(([id, url]) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    if (url) {
+      element.href = url;
+    } else {
+      element.style.display = "none";
+    }
+  });
+}
+
+function imageFallback(event) {
+  event.target.src = "https://placehold.co/500x500?text=LPS";
+}
+
 function link(label, url) {
   if (!url) return "";
   const href = url.startsWith("http") || url.startsWith("mailto:") ? url : `https://${url}`;
@@ -14,6 +35,7 @@ function infoRow(label, value) {
 }
 
 async function initProfile() {
+  setSiteLinks();
   try {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get("slug");
@@ -29,7 +51,7 @@ async function initProfile() {
 
     profile.innerHTML = `
       <div class="profile-header">
-        <img class="profile-photo" src="${safeText(member.photo_url || "https://placehold.co/500x500?text=LPS")}" alt="Photo of ${safeText(member.full_name)}" />
+        <img class="profile-photo" src="${safeText(member.photo_url || "https://placehold.co/500x500?text=LPS")}" alt="Photo of ${safeText(member.full_name)}" onerror="imageFallback(event)" />
         <div>
           <p class="eyebrow">${safeText(member.branch || "Lebanese Physics Society")}</p>
           <h2>${safeText(member.full_name)}</h2>

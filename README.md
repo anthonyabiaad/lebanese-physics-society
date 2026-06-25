@@ -1,64 +1,36 @@
-# Lebanese Physics Society Directory — Version Adapted to Your Excel File
+# Lebanese Physics Society — Directory Website
 
-This website is adapted to the Excel file you uploaded.
+This static website reads members from the published Google Sheet CSV in `config.js` and displays a searchable public directory.
 
-## Your current columns
+## Latest update
 
-The code reads these public columns:
+- Added the WhatsApp group link in the header and footer.
+- Added the member-directory spreadsheet/form link in the header and footer.
+- Members are sorted alphabetically by family name.
+- `T`, `N`, and `E` branch codes are displayed as `Theory`, `Numerical`, and `Experimental`.
+- Status/current-position fields are not shown on the public website.
+- Empty `Publish` cells no longer hide members. Only explicit values such as `NO`, `FALSE`, `PRIVATE`, `HIDDEN`, or `DRAFT` hide a member.
+- The CSV parser is more tolerant of updated column names such as `Full Name`, `First Name`, `Family Name`, `Branch`, and `Research Keywords`.
+- The CSV fetch uses cache busting so recent Google Sheet updates appear more reliably.
 
-- Name
-- Branch/Keywords about your research
-- Contact (mail/phone number)
-- PhD lab/institution
-- Msc institution
-- Bsc institution
-- Notable contacts
-- LinkedIn link
-- Details
+## Links configured in `config.js`
 
-## Strongly recommended extra columns
+- `CSV_URL` — published Google Sheet CSV used as the public database.
+- `WHATSAPP_URL` — Lebanese Physics Society WhatsApp invitation link.
+- `MEMBER_FORM_URL` — spreadsheet/form link for people who want to be added.
 
-Add these columns to the Google Sheet before publishing:
+## Files to upload to GitHub
 
-- Publish — write YES for people who should appear publicly
-- Photo URL — direct public image link for the profile picture
-- Slug — optional clean URL name, e.g. anthony-abi-aad
+Upload all files in this folder to the root of the GitHub repository:
 
-If there is no Publish column, the website will show all non-empty rows.
+- `index.html`
+- `member.html`
+- `styles.css`
+- `config.js`
+- `csv.js`
+- `app.js`
+- `member.js`
+- `Logo.png`
+- `README.md`
 
-## Privacy warning
-
-Do not publish private phone numbers unless every person gave explicit consent.
-The website displays only the extracted email, not the full contact cell, but the CSV itself is still public if the Google Sheet is published to the web.
-
-Best practice:
-create a separate public tab containing only public-safe information.
-
-## How to use
-
-1. Upload your Excel file to Google Sheets.
-2. Create a public tab, for example `Public Directory`.
-3. Keep only public-safe columns and rows.
-4. Add `Publish` and `Photo URL` columns.
-5. Go to File > Share > Publish to web.
-6. Choose the public tab and CSV format.
-7. Copy the CSV link.
-8. Open `config.js` and paste the CSV link inside `CSV_URL`.
-9. Upload all website files to GitHub Pages.
-
-## Pages
-
-- `index.html` is the directory.
-- `member.html` is the profile page.
-
-
-## Your published CSV link is already inserted
-
-The `config.js` file already contains the Google Sheet CSV link you provided. If you publish a different tab later, replace the value of `CSV_URL` in `config.js`.
-
-
-## Latest changes
-
-- Added the Lebanese Physics Society logo as `Logo.png`.
-- Removed all visible status/current-position fields from the directory and member profile pages.
-- Replaced branch codes automatically: `T` becomes `Theory`, `N` becomes `Numerical`, and `E` becomes `Experimental`. Combinations such as `T/N` are shown as `Theory / Numerical`.
+Then commit changes. GitHub Pages will rebuild automatically.
