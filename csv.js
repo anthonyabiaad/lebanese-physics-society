@@ -75,16 +75,44 @@ function extractEmail(text) {
   return match ? match[0] : "";
 }
 
+function expandBranchCode(value) {
+  const raw = cleanDash(value).toUpperCase().trim();
+  if (!raw) return "";
+
+  const codeMap = {
+    T: "Theory",
+    N: "Numerical",
+    E: "Experimental"
+  };
+
+  // Handles T, N, E, but also combinations like T/N, T + E, T,N, or TN.
+  const tokens = raw
+    .replace(/\bTHEORY\b/g, "T")
+    .replace(/\bNUMERICAL\b/g, "N")
+    .replace(/\bEXPERIMENTAL\b/g, "E")
+    .split(/[^TNE]+/)
+    .flatMap(token => token.length > 1 ? token.split("") : [token])
+    .filter(token => codeMap[token]);
+
+  const unique = [...new Set(tokens)];
+  return unique.length ? unique.map(token => codeMap[token]).join(" / ") : value;
+}
+
 function parseBranchAndKeywords(text) {
   const raw = cleanDash(text);
   if (!raw) return { branch: "", keywords: "" };
 
   const slashParts = raw.split("/");
-  if (slashParts.length >= 2 && slashParts[0].trim().length <= 4) {
+  if (slashParts.length >= 2 && slashParts[0].trim().length <= 8) {
     return {
-      branch: slashParts[0].trim().toUpperCase(),
+      branch: expandBranchCode(slashParts[0]),
       keywords: slashParts.slice(1).join("/").trim()
     };
+  }
+
+  // If the cell contains only a branch code, still expand it.
+  if (/^[TNE\s,;+&/-]+$/i.test(raw) && raw.length <= 12) {
+    return { branch: expandBranchCode(raw), keywords: "" };
   }
 
   return { branch: "", keywords: raw };
@@ -112,8 +140,6 @@ function adaptMember(row) {
   const phd = cleanDash(row.phd_lab_institution || row.phd_institution || "");
   const msc = cleanDash(row.msc_institution || row.master_institution || "");
   const bsc = cleanDash(row.bsc_institution || row.bachelor_institution || "");
-  const currentPosition = cleanDash(row.current_position || row.status || "");
-
   return {
     full_name: fullName,
     slug: row.slug || slugify(fullName),
@@ -126,10 +152,9 @@ function adaptMember(row) {
     bsc_institution: bsc,
     notable_contacts: cleanDash(row.notable_contacts || ""),
     linkedin: cleanDash(row.linkedin_link || row.linkedin || ""),
-    current_position: currentPosition,
     details: cleanDash(row.details || row.short_bio || ""),
     display_institution: phd || msc || bsc,
-    raw_search: Object.values(row).join(" ")
+    raw_search: [fullName, parsed.branch, parsed.keywords, phd, msc, bsc, row.notable_contacts, row.linkedin_link, row.details, row.short_bio].join(" ")
   };
 }
 

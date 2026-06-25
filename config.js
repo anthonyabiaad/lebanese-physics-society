@@ -8,7 +8,7 @@
   Required from your current sheet:
   Name, Branch/Keywords about your research, Contact (mail/phone number),
   PhD lab/institution, Msc institution, Bsc institution, Notable contacts,
-  LinkedIn link, Current position, Details
+  LinkedIn link, Details
 
   Recommended extra columns:
   Publish, Photo URL, Slug

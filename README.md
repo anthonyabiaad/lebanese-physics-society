@@ -4,7 +4,7 @@ This website is adapted to the Excel file you uploaded.
 
 ## Your current columns
 
-The code reads these columns:
+The code reads these public columns:
 
 - Name
 - Branch/Keywords about your research
@@ -14,7 +14,6 @@ The code reads these columns:
 - Bsc institution
 - Notable contacts
 - LinkedIn link
-- Current position
 - Details
 
 ## Strongly recommended extra columns
@@ -57,3 +56,9 @@ create a separate public tab containing only public-safe information.
 
 The `config.js` file already contains the Google Sheet CSV link you provided. If you publish a different tab later, replace the value of `CSV_URL` in `config.js`.
 
+
+## Latest changes
+
+- Added the Lebanese Physics Society logo as `Logo.png`.
+- Removed all visible status/current-position fields from the directory and member profile pages.
+- Replaced branch codes automatically: `T` becomes `Theory`, `N` becomes `Numerical`, and `E` becomes `Experimental`. Combinations such as `T/N` are shown as `Theory / Numerical`.

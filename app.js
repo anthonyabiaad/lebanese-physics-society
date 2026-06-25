@@ -1,7 +1,6 @@
 const grid = document.getElementById("membersGrid");
 const searchInput = document.getElementById("searchInput");
 const fieldFilter = document.getElementById("fieldFilter");
-const statusFilter = document.getElementById("statusFilter");
 const count = document.getElementById("count");
 const errorBox = document.getElementById("errorBox");
 
@@ -23,13 +22,11 @@ function populateFilter(select, values) {
 function memberMatches(member) {
   const query = searchInput.value.toLowerCase().trim();
   const branch = fieldFilter.value;
-  const status = statusFilter.value;
 
   const searchableText = [
     member.full_name,
     member.branch,
     member.keywords,
-    member.current_position,
     member.display_institution,
     member.phd_institution,
     member.msc_institution,
@@ -40,8 +37,7 @@ function memberMatches(member) {
   ].join(" ").toLowerCase();
 
   return (!query || searchableText.includes(query)) &&
-         (!branch || member.branch === branch) &&
-         (!status || member.current_position === status);
+         (!branch || member.branch === branch);
 }
 
 function renderMembers() {
@@ -53,7 +49,6 @@ function renderMembers() {
       <img class="avatar" src="${safeText(member.photo_url || "https://placehold.co/400x400?text=LPS")}" alt="Photo of ${safeText(member.full_name)}" loading="lazy" />
       <div class="card-body">
         <h2>${safeText(member.full_name)}</h2>
-        <p class="role">${safeText(member.current_position || "Member")}</p>
         <p>${safeText(member.display_institution)}</p>
         <p class="field">${safeText(member.branch ? `Branch: ${member.branch}` : "")}</p>
         <p class="keywords">${safeText(member.keywords)}</p>
@@ -66,7 +61,6 @@ async function init() {
   try {
     allMembers = await loadMembers();
     populateFilter(fieldFilter, uniqueValues(allMembers, "branch"));
-    populateFilter(statusFilter, uniqueValues(allMembers, "current_position"));
     renderMembers();
   } catch (error) {
     errorBox.hidden = false;
@@ -76,6 +70,5 @@ async function init() {
 
 searchInput.addEventListener("input", renderMembers);
 fieldFilter.addEventListener("change", renderMembers);
-statusFilter.addEventListener("change", renderMembers);
 
 init();

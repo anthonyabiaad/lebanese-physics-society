@@ -31,9 +31,8 @@ async function initProfile() {
       <div class="profile-header">
         <img class="profile-photo" src="${safeText(member.photo_url || "https://placehold.co/500x500?text=LPS")}" alt="Photo of ${safeText(member.full_name)}" />
         <div>
-          <p class="eyebrow">${safeText(member.branch ? `Branch ${member.branch}` : "Lebanese Physics Society")}</p>
+          <p class="eyebrow">${safeText(member.branch || "Lebanese Physics Society")}</p>
           <h2>${safeText(member.full_name)}</h2>
-          <p class="profile-role">${safeText(member.current_position || "Member")}</p>
           <p>${safeText(member.display_institution)}</p>
           <div class="profile-links">
             ${member.email_public ? link("Email", `mailto:${member.email_public}`) : ""}
