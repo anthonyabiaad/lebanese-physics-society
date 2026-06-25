@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lebanese Physics Society — Directory</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Lebanese Physics Society</p>
+        <h1>Members Directory</h1>
+        <p class="lead">A network of Lebanese physicists across universities, laboratories, and industry.</p>
+      </div>
+      <div class="mark">LPS</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls" aria-label="Search and filters">
+      <input id="searchInput" type="search" placeholder="Search by name, institution, keyword..." />
+      <select id="fieldFilter">
+        <option value="">All fields</option>
+      </select>
+      <select id="statusFilter">
+        <option value="">All statuses</option>
+      </select>
+    </section>
+
+    <p id="count" class="count"></p>
+    <section id="membersGrid" class="members-grid"></section>
+    <p id="errorBox" class="error" hidden></p>
+  </main>
+
+  <footer class="container footer">
+    <p>Per Leges Naturae ad Deum Cedrorum</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="csv.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
