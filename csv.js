@@ -266,6 +266,7 @@ function adaptMember(row) {
   const msc = getFirst(row, ["msc_institution", "msc institution", "master_institution", "master institution", "ms_institution", "m_sc_institution"]);
   const bsc = getFirst(row, ["bsc_institution", "bsc institution", "bachelor_institution", "bachelor institution", "bs_institution", "b_sc_institution"]);
   const current = getFirst(row, ["current_institution", "current institution", "institution", "affiliation", "laboratory", "lab"]);
+  const currentPosition = getFirst(row, ["current_position", "current position", "position", "current_role", "current role", "role"]);
 
   return {
     full_name: fullName,
@@ -280,9 +281,10 @@ function adaptMember(row) {
     bsc_institution: bsc,
     notable_contacts: getFirst(row, ["notable_contacts", "notable contacts", "contacts", "network"]),
     linkedin: getFirst(row, ["linkedin_link", "linkedin link", "linkedin", "linkedin_url", "linkedin url"]),
-    details: getFirst(row, ["details", "short_bio", "short bio", "bio", "description", "additional_details", "additional details"]),
-    display_institution: current || phd || msc || bsc,
-    raw_search: Object.values(row).join(" ")
+   details: getFirst(row, ["details", "short_bio", "short bio", "bio", "description", "additional_details", "additional details"]),
+  current_position: currentPosition,
+  display_institution: current || phd || msc || bsc,
+  raw_search: Object.values(row).join(" ")
   };
 }
 
