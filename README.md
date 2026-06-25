@@ -34,3 +34,17 @@ Upload all files in this folder to the root of the GitHub repository:
 - `README.md`
 
 Then commit changes. GitHub Pages will rebuild automatically.
+
+
+## News and Offers pages
+
+This version adds:
+
+- `news.html` — a page for announcements, seminars, events, and society updates.
+- `offers.html` — a page for jobs, PhD theses, internships, postdocs, and other opportunities.
+- `links.js` — a small shared script that inserts the WhatsApp and directory links in the new pages.
+- `phd-thesis-lpl-optical-fiber-geophysics.pdf` — the PDF thesis proposal linked from the Offers page.
+
+The first offer currently displayed is a PhD thesis opportunity at Laboratoire de Physique des Lasers, Université Sorbonne Paris Nord, with date published set to 25 June 2026.
+
+Upload all files, including `news.html`, `offers.html`, `links.js`, and the PDF, to the root of the GitHub repository.
