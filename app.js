@@ -76,10 +76,11 @@ function renderMembers() {
     <a class="member-card" href="member.html?slug=${encodeURIComponent(member.slug)}">
       <img class="avatar" src="${safeText(member.photo_url || "https://placehold.co/400x400?text=LPS")}" alt="Photo of ${safeText(member.full_name)}" loading="lazy" onerror="imageFallback(event)" />
       <div class="card-body">
-        <h2>${safeText(member.full_name)}</h2>
-        <p>${safeText(member.display_institution)}</p>
-        <p class="field">${safeText(member.branch ? `Branch: ${member.branch}` : "")}</p>
-        <p class="keywords">${safeText(member.keywords)}</p>
+      <h2>${safeText(member.full_name)}</h2>
+      <p>${safeText(member.display_institution)}</p>
+      ${member.current_position ? `<p class="position">${safeText(member.current_position)}</p>` : ""}
+      <p class="field">${safeText(member.branch ? `Branch: ${member.branch}` : "")}</p>
+       <p class="keywords">${safeText(member.keywords)}</p>
       </div>
     </a>
   `).join("");
