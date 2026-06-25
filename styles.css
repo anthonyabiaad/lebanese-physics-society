@@ -153,7 +153,11 @@ input, select {
   margin: 7px 0;
   color: var(--muted);
 }
-
+.position {
+  color: #222 !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
 .field {
   color: var(--cedar) !important;
   font-weight: 700;
