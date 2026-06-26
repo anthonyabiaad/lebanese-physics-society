@@ -729,3 +729,94 @@ input, select {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ===================== Clickable homepage topics & project spotlight ===================== */
+.topic-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.topic-link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: rgba(15, 95, 58, 0.32);
+}
+
+.topic-action {
+  display: inline-flex;
+  margin-top: 16px;
+  color: var(--cedar);
+  font-weight: 850;
+  font-size: 0.92rem;
+}
+
+.project-spotlight {
+  scroll-margin-top: 28px;
+}
+
+.spotlight-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr);
+  gap: 22px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: clamp(22px, 4vw, 38px);
+  box-shadow: var(--shadow);
+}
+
+.spotlight-main h3 {
+  margin: 14px 0 12px;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.spotlight-main p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.spotlight-main strong {
+  color: var(--ink);
+}
+
+.spotlight-notes {
+  background: rgba(15, 95, 58, 0.06);
+  border: 1px solid rgba(15, 95, 58, 0.12);
+  border-radius: 24px;
+  padding: 20px;
+  align-self: start;
+}
+
+.spotlight-notes h4 {
+  margin: 0 0 12px;
+  color: var(--cedar);
+  font-size: 1.05rem;
+}
+
+.spotlight-notes ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink);
+}
+
+.spotlight-notes li {
+  margin: 0 0 10px;
+}
+
+.spotlight-notes .note {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+@media (max-width: 820px) {
+  .spotlight-card {
+    grid-template-columns: 1fr;
+  }
+}
