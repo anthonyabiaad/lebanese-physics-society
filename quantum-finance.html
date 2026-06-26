@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quantum for Finance — Lebanese Physics Society</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header compact">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Lebanese Physics Society</p>
+        <h1>Quantum for Finance</h1>
+      </div>
+      <div class="header-actions">
+        <nav class="site-nav compact-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="board.html">Board</a>
+          <a href="news.html">News</a>
+          <a href="offers.html">Job Offers</a>
+          <a href="directory.html">Directory</a>
+        </nav>
+        <img class="site-logo compact-logo" src="Logo.png" alt="Lebanese Physics Society logo" />
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-main">
+    <a class="back-link" href="index.html">← Back to home</a>
+
+    <section class="section-intro">
+      <p class="eyebrow">Application branch</p>
+      <h2>Quantum methods for portfolio optimization and financial modelling</h2>
+      <p>
+        Quantum finance studies how quantum algorithms, quantum-inspired optimization, and hybrid quantum-classical methods can help formulate and explore difficult financial problems, especially when many correlated decisions must be made under constraints.
+      </p>
+    </section>
+
+    <section class="home-section project-spotlight" aria-label="French Qubits hackathon quantum finance example">
+      <div class="section-heading">
+        <p class="eyebrow">Example project</p>
+        <h2>French Qubits Hackathon — portfolio optimization with quantum methods</h2>
+        <p class="muted">
+          A concrete example of how quantum computing can be used to reformulate an industrial finance problem.
+        </p>
+      </div>
+
+      <article class="spotlight-card">
+        <div class="spotlight-main">
+          <span class="topic-tag">Quantum for finance</span>
+          <h3>From a financial decision to a quantum optimization problem</h3>
+          <p>
+            The founder, <strong>Anthony ABI AAD</strong>, worked with the French Qubits hackathon team on a project around
+            <strong>portfolio optimization</strong>. The central question was how to select a set of assets while balancing
+            expected return, risk, asset correlations, and practical constraints.
+          </p>
+          <p>
+            The quantum approach helped define the problem more clearly by translating a financial decision into a structured
+            <strong>combinatorial optimization problem</strong>. Each asset can be represented by a binary variable: selected or not selected.
+            Once written in this form, the problem can be mapped to a QUBO formulation and then to an Ising Hamiltonian, which is the natural language of many quantum optimization algorithms.
+          </p>
+          <p>
+            In that Hamiltonian, economic terms become physical terms: expected return contributes to the reward, covariance contributes to risk, portfolio-size constraints become penalty terms, and additional industrial constraints such as liquidity, transaction costs, and market impact can also be encoded. This makes the problem compatible with hybrid methods such as QAOA, where a quantum circuit explores candidate portfolios and a classical optimizer updates the circuit parameters.
+          </p>
+        </div>
+
+        <aside class="spotlight-notes">
+          <h4>What the project illustrates</h4>
+          <ul>
+            <li>How a finance problem can be written as a QUBO / Ising Hamiltonian.</li>
+            <li>How QAOA can be used to search over possible portfolio selections.</li>
+            <li>How quantum kernels can help with asset pre-selection and similarity analysis.</li>
+            <li>How AI modules and warm-start strategies can improve the optimization pipeline.</li>
+            <li>How quantum and classical methods can be combined rather than treated as competitors.</li>
+          </ul>
+          <p class="note">
+            This is a research and learning prototype, not a production trading strategy or financial recommendation.
+          </p>
+        </aside>
+      </article>
+    </section>
+
+    <section class="home-section split-section" aria-label="Quantum finance directions">
+      <article class="priority-card">
+        <h3>Optimization</h3>
+        <p>
+          Portfolio selection, risk-return trade-offs, allocation constraints, transaction costs, and market-impact terms can naturally lead to hard discrete optimization problems.
+        </p>
+      </article>
+
+      <article class="priority-card">
+        <h3>Quantum & AI pipeline</h3>
+        <p>
+          Quantum kernels, classical preprocessing, machine learning, warm-start states, and QAOA can be combined into a hybrid workflow for studying financial datasets.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>Per Leges Naturae ad Deum Cedrorum</p>
+    <p class="footer-links">
+      <a id="footerWhatsappLink" href="#" target="_blank" rel="noopener">WhatsApp group</a>
+      <span>·</span>
+      <a id="footerMemberFormLink" href="#" target="_blank" rel="noopener">Be added to the directory</a>
+      <span>·</span>
+      <a href="board.html">Board</a>
+      <span>·</span>
+      <a href="news.html">News</a>
+      <span>·</span>
+      <a href="offers.html">Job Offers</a>
+      <span>·</span>
+      <a href="directory.html">Directory</a>
+    </p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="links.js"></script>
+</body>
+</html>

@@ -46,13 +46,13 @@
       </div>
 
       <div class="topic-grid">
-        <a class="topic-card topic-link" href="#french-qubits-finance">
+        <a class="topic-card topic-link" href="quantum-finance.html">
           <span class="topic-tag">Quantum for finance</span>
           <h3>Optimization, risk and market modelling</h3>
           <p>
             Quantum algorithms and quantum-inspired methods for portfolio optimization, Monte Carlo acceleration, risk analysis, derivative pricing, and complex financial systems.
           </p>
-          <span class="topic-action">See the French Qubits hackathon example →</span>
+          <span class="topic-action">Open the French Qubits hackathon example →</span>
         </a>
 
         <article class="topic-card">
@@ -95,51 +95,6 @@
           </p>
         </article>
       </div>
-    </section>
-
-    <section id="french-qubits-finance" class="home-section project-spotlight" aria-label="French Qubits hackathon quantum finance example">
-      <div class="section-heading">
-        <p class="eyebrow">Example project</p>
-        <h2>French Qubits Hackathon — portfolio optimization with quantum methods</h2>
-        <p class="muted">
-          A concrete example of how quantum computing can be used to reformulate an industrial finance problem.
-        </p>
-      </div>
-
-      <article class="spotlight-card">
-        <div class="spotlight-main">
-          <span class="topic-tag">Quantum for finance</span>
-          <h3>From a financial decision to a quantum optimization problem</h3>
-          <p>
-            The founder, <strong>Anthony ABI AAD</strong>, worked with the French Qubits hackathon team on a project around
-            <strong>portfolio optimization</strong>, where the central question was how to select a set of assets while balancing
-            expected return, risk, correlations, and practical constraints.
-          </p>
-          <p>
-            Quantum helped define the problem by forcing the financial objective to be written as a structured
-            <strong>combinatorial optimization problem</strong>. Each asset can be represented by a binary variable — selected or not selected —
-            and this binary formulation can then be mapped into a QUBO / Ising Hamiltonian, the natural language of algorithms such as QAOA.
-          </p>
-          <p>
-            In this view, the cost Hamiltonian encodes the economic terms: return, covariance-based risk, portfolio-size constraints,
-            liquidity penalties, fixed costs, and market-impact terms. The quantum circuit then explores possible portfolios, while a
-            classical optimizer tunes the circuit parameters in a hybrid quantum-classical loop.
-          </p>
-        </div>
-
-        <aside class="spotlight-notes">
-          <h4>What the project illustrates</h4>
-          <ul>
-            <li>How a finance problem becomes a physics-inspired Hamiltonian.</li>
-            <li>How QAOA can be used for portfolio selection.</li>
-            <li>How quantum kernels and AI modules can support asset pre-selection.</li>
-            <li>How quantum approaches interact with classical methods rather than replacing them directly.</li>
-          </ul>
-          <p class="note">
-            This is a research and learning prototype, not a production trading strategy.
-          </p>
-        </aside>
-      </article>
     </section>
 
     <section class="home-section split-section" aria-label="Society priorities">
