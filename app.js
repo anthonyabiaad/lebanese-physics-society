@@ -6,29 +6,6 @@ const errorBox = document.getElementById("errorBox");
 
 let allMembers = [];
 
-function setSiteLinks() {
-  const links = [
-    ["whatsappLink", typeof WHATSAPP_URL !== "undefined" ? WHATSAPP_URL : ""],
-    ["memberFormLink", typeof MEMBER_FORM_URL !== "undefined" ? MEMBER_FORM_URL : ""],
-    ["footerWhatsappLink", typeof WHATSAPP_URL !== "undefined" ? WHATSAPP_URL : ""],
-    ["footerMemberFormLink", typeof MEMBER_FORM_URL !== "undefined" ? MEMBER_FORM_URL : ""]
-  ];
-
-  links.forEach(([id, url]) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    if (url) {
-      element.href = url;
-    } else {
-      element.style.display = "none";
-    }
-  });
-}
-
-function imageFallback(event) {
-  event.target.src = "https://placehold.co/400x400?text=LPS";
-}
-
 function uniqueValues(members, key) {
   return [...new Set(members.map(member => member[key]).filter(Boolean))].sort();
 }
@@ -74,21 +51,22 @@ function renderMembers() {
   }
 
   grid.innerHTML = visibleMembers.map(member => `
-    <a class="member-card" href="member.html?slug=${encodeURIComponent(member.slug)}">
-      <img class="avatar" src="${safeText(member.photo_url || "https://placehold.co/400x400?text=LPS")}" alt="Photo of ${safeText(member.full_name)}" loading="lazy" onerror="imageFallback(event)" />
-      <div class="card-body">
-        <h2>${safeText(member.full_name)}</h2>
-        <p>${safeText(member.display_institution)}</p>
-        ${member.current_position ? `<p class="position">${safeText(member.current_position)}</p>` : ""}
-        <p class="field">${safeText(member.branch ? `Branch: ${member.branch}` : "")}</p>
-        <p class="keywords">${safeText(member.keywords)}</p>
+    <article class="member-row">
+      <div class="member-row-main">
+        <a class="member-row-name" href="member.html?slug=${encodeURIComponent(member.slug)}">
+          ${safeText(member.full_name)}
+        </a>
+        ${member.current_position ? `<p class="member-row-position">${safeText(member.current_position)}</p>` : ""}
       </div>
-    </a>
+      <div class="member-row-branch">
+        ${member.branch ? `<span class="branch-chip">${safeText(member.branch)}</span>` : `<span class="branch-chip muted-chip">No branch</span>`}
+      </div>
+      <p class="member-row-keywords">${safeText(member.keywords || "No keywords added yet.")}</p>
+    </article>
   `).join("");
 }
 
 async function init() {
-  setSiteLinks();
   try {
     allMembers = await loadMembers();
     populateFilter(fieldFilter, uniqueValues(allMembers, "branch"));

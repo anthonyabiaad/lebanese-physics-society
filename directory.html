@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Board — Lebanese Physics Society</title>
+  <title>Directory — Lebanese Physics Society</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,15 +11,15 @@
     <div class="container header-inner">
       <div>
         <p class="eyebrow">Lebanese Physics Society</p>
-        <h1>Board Members</h1>
+        <h1>Directory</h1>
       </div>
       <div class="header-actions">
         <nav class="site-nav compact-nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
-          <a class="active" href="board.html">Board</a>
+          <a href="board.html">Board</a>
           <a href="news.html">News</a>
           <a href="offers.html">Job Offers</a>
-          <a href="directory.html">Directory</a>
+          <a class="active" href="directory.html">Directory</a>
         </nav>
         <img class="site-logo compact-logo" src="Logo.png" alt="Lebanese Physics Society logo" />
       </div>
@@ -27,42 +27,24 @@
   </header>
 
   <main class="container page-main">
-    <section class="section-intro">
-      <p class="eyebrow">Governance</p>
-      <h2>Founding and administrative board</h2>
+    <section class="section-intro directory-intro">
+      <p class="eyebrow">Members network</p>
+      <h2>Lebanese profiles in physics, quantum, AI and industrial applications</h2>
       <p>
-        The board coordinates the Lebanese Physics Society, supports the development
-        of the network, and helps structure its scientific, academic, and administrative activities.
+        Browse members by name, branch, institution, or research keywords. Click on a name to open the full profile.
       </p>
     </section>
 
-    <section class="board-section" aria-label="Board members">
-      <div class="board-grid">
-        <article class="board-card">
-          <img
-            src="photos/anthony-abi-aad-git.jpg"
-            alt="Anthony ABI AAD"
-            class="board-photo"
-          />
-          <div class="board-info">
-            <h3>Anthony ABI AAD</h3>
-            <p>Founder</p>
-          </div>
-        </article>
-
-        <article class="board-card">
-          <img
-            src="photos/john-el-hajj.jpg"
-            alt="John EL HAJJ"
-            class="board-photo"
-          />
-          <div class="board-info">
-            <h3>John EL HAJJ</h3>
-            <p>Legal Counselor</p>
-          </div>
-        </article>
-      </div>
+    <section class="controls" aria-label="Search and filters">
+      <input id="searchInput" type="search" placeholder="Search by name, institution, keyword..." />
+      <select id="fieldFilter">
+        <option value="">All branches</option>
+      </select>
     </section>
+
+    <p id="count" class="count"></p>
+    <section id="membersGrid" class="members-list" aria-label="Members list"></section>
+    <p id="errorBox" class="error" hidden></p>
   </main>
 
   <footer class="container footer">
@@ -79,12 +61,11 @@
       <a href="news.html">News</a>
       <span>·</span>
       <a href="offers.html">Job Offers</a>
-      <span>·</span>
-      <a href="directory.html">Directory</a>
     </p>
   </footer>
 
   <script src="config.js"></script>
-  <script src="links.js"></script>
+  <script src="csv.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

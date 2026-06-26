@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lebanese Physics Society — Directory</title>
+  <title>Lebanese Physics Society</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,13 +11,14 @@
     <div class="container header-inner">
       <div class="header-copy">
         <p class="eyebrow">Lebanese Physics Society</p>
-        <h1>Members Directory</h1>
-        <p class="lead">A network of Lebanese interested in the application of physics, quantum & AI into industrial cases</p>
+        <h1>Physics, Quantum & AI for Industry</h1>
+        <p class="lead">A network of Lebanese interested in the application of physics, quantum & AI into industrial cases.</p>
         <nav class="site-nav" aria-label="Main navigation">
-          <a class="active" href="index.html">Directory</a>
+          <a class="active" href="index.html">Home</a>
           <a href="board.html">Board</a>
           <a href="news.html">News</a>
-          <a href="offers.html">Offers</a>
+          <a href="offers.html">Job Offers</a>
+          <a href="directory.html">Directory</a>
         </nav>
         <div class="cta-row">
           <a id="whatsappLink" class="cta primary" href="#" target="_blank" rel="noopener">Join the WhatsApp group</a>
@@ -28,17 +29,88 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="controls" aria-label="Search and filters">
-      <input id="searchInput" type="search" placeholder="Search by name, institution, keyword..." />
-      <select id="fieldFilter">
-        <option value="">All branches</option>
-      </select>
+  <main class="container page-main">
+    <section class="section-intro home-intro">
+      <p class="eyebrow">Scientific orientation</p>
+      <h2>Connecting physics training to concrete industrial problems</h2>
+      <p>
+        The Lebanese Physics Society aims to gather Lebanese students, researchers, engineers, and professionals around physics-based technologies, with a special focus on quantum science, photonics, artificial intelligence, modelling, sensing, and industrial innovation.
+      </p>
     </section>
 
-    <p id="count" class="count"></p>
-    <section id="membersGrid" class="members-grid"></section>
-    <p id="errorBox" class="error" hidden></p>
+    <section class="home-section" aria-label="Quantum application branches">
+      <div class="section-heading">
+        <p class="eyebrow">Quantum applications</p>
+        <h2>Quantum branches and use cases</h2>
+        <p class="muted">A first map of the fields we want to connect inside the society.</p>
+      </div>
+
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-tag">Quantum for finance</span>
+          <h3>Optimization, risk and market modelling</h3>
+          <p>
+            Quantum algorithms and quantum-inspired methods for portfolio optimization, Monte Carlo acceleration, risk analysis, derivative pricing, and complex financial systems.
+          </p>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Quantum for modelling</span>
+          <h3>Simulation of complex physical systems</h3>
+          <p>
+            Quantum simulation and numerical modelling for materials, chemistry, condensed matter, wave propagation, differential equations, and high-dimensional physical problems.
+          </p>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Quantum & AI</span>
+          <h3>Learning, control and physical AI</h3>
+          <p>
+            Connections between quantum physics and artificial intelligence, including quantum machine learning, AI-assisted experiments, photonic AI, inverse design, and control of quantum systems.
+          </p>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Quantum sensing</span>
+          <h3>Metrology and environmental monitoring</h3>
+          <p>
+            Quantum and photonic sensors for time-frequency transfer, optical fiber sensing, geophysics, seismic monitoring, navigation, biomedical sensing, and industrial diagnostics.
+          </p>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Photonics</span>
+          <h3>Integrated and industrial photonic systems</h3>
+          <p>
+            Photonic integrated circuits, lithium niobate platforms, semiconductor lasers, nonlinear optics, telecom components, and optical systems for real-world deployment.
+          </p>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Quantum networks</span>
+          <h3>Communication and secure infrastructure</h3>
+          <p>
+            Quantum communication, secure optical links, synchronization networks, quantum internet architectures, and the interface between telecom infrastructure and quantum technologies.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section split-section" aria-label="Society priorities">
+      <article class="priority-card">
+        <h3>For students and young researchers</h3>
+        <p>
+          Build a Lebanese network across universities, laboratories, and companies, share opportunities, find mentors, and discover industrial paths for physics profiles.
+        </p>
+      </article>
+
+      <article class="priority-card">
+        <h3>For industry and innovation</h3>
+        <p>
+          Promote physics-based expertise in quantum technologies, AI, photonics, modelling, sensing, and data-driven scientific engineering.
+        </p>
+      </article>
+    </section>
   </main>
 
   <footer class="container footer">
@@ -52,12 +124,13 @@
       <span>·</span>
       <a href="news.html">News</a>
       <span>·</span>
-      <a href="offers.html">Offers</a>
+      <a href="offers.html">Job Offers</a>
+      <span>·</span>
+      <a href="directory.html">Directory</a>
     </p>
   </footer>
 
   <script src="config.js"></script>
-  <script src="csv.js"></script>
-  <script src="app.js"></script>
+  <script src="links.js"></script>
 </body>
 </html>
