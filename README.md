@@ -1,50 +1,33 @@
-# Lebanese Physics Society — Directory Website
+# Lebanese Physics Society Website
 
-This static website reads members from the published Google Sheet CSV in `config.js` and displays a searchable public directory.
+This static website is connected to the published Google Sheet CSV in `config.js` and is hosted with GitHub Pages.
 
-## Latest update
+## Main pages
 
-- Added the WhatsApp group link in the header and footer.
-- Added the member-directory spreadsheet/form link in the header and footer.
-- Members are sorted alphabetically by family name.
-- `T`, `N`, and `E` branch codes are displayed as `Theory`, `Numerical`, and `Experimental`.
-- Status/current-position fields are not shown on the public website.
-- Empty `Publish` cells no longer hide members. Only explicit values such as `NO`, `FALSE`, `PRIVATE`, `HIDDEN`, or `DRAFT` hide a member.
-- The CSV parser is more tolerant of updated column names such as `Full Name`, `First Name`, `Family Name`, `Branch`, and `Research Keywords`.
-- The CSV fetch uses cache busting so recent Google Sheet updates appear more reliably.
+- `index.html` — members directory
+- `board.html` — board members
+- `news.html` — news section
+- `offers.html` — opportunities section
+- `member.html` — individual member profile page
 
-## Links configured in `config.js`
+## Main scripts
 
-- `CSV_URL` — published Google Sheet CSV used as the public database.
-- `WHATSAPP_URL` — Lebanese Physics Society WhatsApp invitation link.
-- `MEMBER_FORM_URL` — spreadsheet/form link for people who want to be added.
+- `config.js` — Google Sheet CSV link, WhatsApp group link, and WhatsApp member-request message
+- `csv.js` — reads and adapts the Google Sheet data
+- `app.js` — renders the member cards on the directory page
+- `member.js` — renders individual member profiles
+- `links.js` — applies shared footer links on static pages
 
-## Files to upload to GitHub
+## Photos
 
-Upload all files in this folder to the root of the GitHub repository:
+Member and board photos should be uploaded to the `photos/` folder. Use links like:
 
-- `index.html`
-- `member.html`
-- `styles.css`
-- `config.js`
-- `csv.js`
-- `app.js`
-- `member.js`
-- `Logo.png`
-- `README.md`
+`https://anthonyabiaad.github.io/lebanese-physics-society/photos/filename.jpg`
 
-Then commit changes. GitHub Pages will rebuild automatically.
+Example:
 
+`https://anthonyabiaad.github.io/lebanese-physics-society/photos/john-el-hajj.jpg`
 
-## News and Offers pages
+## Updating the site
 
-This version adds:
-
-- `news.html` — a page for announcements, seminars, events, and society updates.
-- `offers.html` — a page for jobs, PhD theses, internships, postdocs, and other opportunities.
-- `links.js` — a small shared script that inserts the WhatsApp and directory links in the new pages.
-- `phd-thesis-lpl-optical-fiber-geophysics.pdf` — the PDF thesis proposal linked from the Offers page.
-
-The first offer currently displayed is a PhD thesis opportunity at Laboratoire de Physique des Lasers, Université Sorbonne Paris Nord, with date published set to 25 June 2026.
-
-Upload all files, including `news.html`, `offers.html`, `links.js`, and the PDF, to the root of the GitHub repository.
+Upload the modified files to the root of the GitHub repository, except board/member photos, which should go inside `photos/`.

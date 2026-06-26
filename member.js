@@ -56,6 +56,7 @@ async function initProfile() {
           <p class="eyebrow">${safeText(member.branch || "Lebanese Physics Society")}</p>
           <h2>${safeText(member.full_name)}</h2>
           <p>${safeText(member.display_institution)}</p>
+          ${member.current_position ? `<p class="position profile-position">${safeText(member.current_position)}</p>` : ""}
           <div class="profile-links">
             ${member.email_public ? link("Email", `mailto:${member.email_public}`) : ""}
             ${link("LinkedIn", member.linkedin)}
@@ -65,6 +66,7 @@ async function initProfile() {
 
       <section class="profile-section">
         <h3>Research profile</h3>
+        ${infoRow("Current position", member.current_position)}
         ${infoRow("Branch", member.branch)}
         ${infoRow("Keywords", member.keywords)}
       </section>

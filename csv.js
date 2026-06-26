@@ -281,10 +281,10 @@ function adaptMember(row) {
     bsc_institution: bsc,
     notable_contacts: getFirst(row, ["notable_contacts", "notable contacts", "contacts", "network"]),
     linkedin: getFirst(row, ["linkedin_link", "linkedin link", "linkedin", "linkedin_url", "linkedin url"]),
-   details: getFirst(row, ["details", "short_bio", "short bio", "bio", "description", "additional_details", "additional details"]),
-  current_position: currentPosition,
-  display_institution: current || phd || msc || bsc,
-  raw_search: Object.values(row).join(" ")
+    details: getFirst(row, ["details", "short_bio", "short bio", "bio", "description", "additional_details", "additional details"]),
+    current_position: currentPosition,
+    display_institution: current || phd || msc || bsc,
+    raw_search: Object.values(row).join(" ")
   };
 }
 
